@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         fillableLoader = findViewById(R.id.fillableLoader);
         fillableLoader.setSvgPath(svgPath);
 
+        fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
 
-     fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
            @Override
         public void onStateChange(int state) {
                if(state == State.FINISHED){

@@ -2,10 +2,11 @@ package be.pxl.beerno;
 
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Establishment {
+public class Establishment implements Serializable {
 
     private String name;
     private LatLng location;

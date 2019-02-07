@@ -259,12 +259,19 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
             double radius = ((GPSTask) currentTask).getRadius();
 
             LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-
             LatLng taskLocation = new LatLng(currentTask.getLatitude(), currentTask.getLongitude());
 
             if (userLocation.distanceTo(taskLocation) < radius) {
                 // todo nakijken of dit BeerRouteActivity.this moet zijn of gewoon this
                 startActivity(new Intent(BeerRouteActivity.this, EstablishmentActivity.class));
+                LatLng establishmentLatLng = new LatLng(location.getLatitude(), location.getLatitude());
+                BeerRepository beerRepository = new BeerRepository();
+
+                Establishment nearbyEstablishment = beerRepository.getEstablishmentAtLatLng(establishmentLatLng);
+
+                getIntent().putExtra("establishment", nearbyEstablishment);
+                startActivity(new Intent(this, EstablishmentActivity.class));
+
             }
         }
     }
