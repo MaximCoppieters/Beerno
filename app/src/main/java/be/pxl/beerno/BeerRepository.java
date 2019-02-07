@@ -14,11 +14,11 @@ public class BeerRepository {
     public static List<Beer> getAllBeers() {
         List<Beer> beers = new ArrayList<>();
 
-        Beer stella = new Beer("Stella Artois", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\stella.png"));
-        Beer jupiler = new Beer("Jupiler", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\jupiler.png"));
-        Beer guiness = new Beer("Guiness", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\guiness.jpg"));
-        Beer krusuvice = new Beer("Krušovice", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\krusovice.png"));
-        Beer heineken = new Beer("Heineken", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\heineken.png"));
+        Beer stella = new Beer("Stella Artois", getUriFromImageName("stella.png"));
+        Beer jupiler = new Beer("Jupiler", getUriFromImageName("jupuler.png"));
+        Beer guiness = new Beer("Guiness", getUriFromImageName("guiness.jpg"));
+        Beer krusuvice = new Beer("Krušovice", getUriFromImageName("krusovice.png"));
+        Beer heineken = new Beer("Heineken", getUriFromImageName("heineken.png"));
 
         beers.add(jupiler);
         beers.add(stella);
@@ -27,5 +27,9 @@ public class BeerRepository {
         beers.add(heineken);
 
         return beers;
+    }
+
+    private static Uri getUriFromImageName(String imageName) {
+        return Uri.parse("android.resource://be.pxl/" + imageName);
     }
 }

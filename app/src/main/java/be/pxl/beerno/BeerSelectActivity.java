@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +48,6 @@ public class BeerSelectActivity extends AppCompatActivity {
     private class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder> {
 
         private List<Beer> beers;
-        private List<Integer> selectedBeerIndexes;
 
         public BeerAdapter(List<Beer> beers) {
             this.beers = beers;
@@ -58,8 +59,6 @@ public class BeerSelectActivity extends AppCompatActivity {
         public BeerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
             View view = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.row_beer_select, viewGroup, false);
-            beers = new ArrayList<>();
-            selectedBeerIndexes = new ArrayList<>();
             return new BeerViewHolder(view);
         }
 
@@ -75,11 +74,19 @@ public class BeerSelectActivity extends AppCompatActivity {
             beerViewHolder.beer_name.setText(selectedBeer.getName());
             beerViewHolder.beer_image.setImageURI(selectedBeer.getImageUri());
 
+            Picasso.get().load(selectedBeer.getImageUri()).into(beerViewHolder.beer_image);
+
             beerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    selectedBeerIndexes.add(position);
-
+                    ImageView checkmark = v.findViewById(R.id.check_mark);
+                    if (selectedBeer.GetSelected()) {
+                        selectedBeer.setSelected(false);
+                        checkmark.setVisibility(View.GONE);
+                    } else {
+                        selectedBeer.setSelected(true);
+                        checkmark.setVisibility(View.VISIBLE);
+                    }
                 }
             });
         }
