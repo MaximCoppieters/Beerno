@@ -2,6 +2,7 @@ package be.pxl.beerno;
 
 import android.location.Location;
 
+import com.mapbox.android.core.location.LocationEnginePriority;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
