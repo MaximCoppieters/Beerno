@@ -20,8 +20,23 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <TextView
+        android:id="@+id/establishment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of pub"
+        android:textSize="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="7dp"/>
+
+    <android.support.v7.widget.CardView
+        app:cardBackgroundColor="@color/colorButton"
+        app:cardCornerRadius="15dp"
+        style="@style/bottom_button_cardview">
+        <TextView
+            android:text="RESUME"
+            style="@style/text_in_button_cardview" />
+    </android.support.v7.widget.CardView>
+
     <include layout="@layout/content_establishment" />
-
-
-
 </android.support.design.widget.CoordinatorLayout>

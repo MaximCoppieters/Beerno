@@ -10,9 +10,6 @@ public class Establishment {
     private LatLng location;
     private List<Beer> beerList;
 
-    //todo implement beer class and delete this inner class
-    private class Beer{}
-
     public Establishment() { }
 
     public Establishment(String name, LatLng location, List<Beer> beerList) {

@@ -38,18 +38,12 @@
         android:layout_marginTop="200dp"/>
 
     <android.support.v7.widget.CardView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="40dp"
         app:cardBackgroundColor="@color/colorButton"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        style="@style/bottom_button_cardview">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="FINISH"
-            android:textSize="25dp"
-            android:layout_gravity="center"/>
+            style="@style/text_in_button_cardview" />
     </android.support.v7.widget.CardView>
     <include layout="@layout/content_summary" />
 </android.support.design.widget.CoordinatorLayout>

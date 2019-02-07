@@ -8,7 +8,7 @@ public class Beer {
     private String name;
     private Path imagePath;
     private boolean selected;
-    private int drinkCount;
+
     private String description;
 
     public Beer(String name, Path imagePath) {
@@ -41,15 +41,7 @@ public class Beer {
         return selected;
     }
 
-    public void IncrementDrinkCount() {
-        drinkCount++;
-    }
 
-    public void DecrementDrinkCount() {
-        if (drinkCount > 0) {
-            drinkCount--;
-        }
-    }
 
     @Override
     public String toString() {
