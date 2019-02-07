@@ -19,7 +19,7 @@
         app:fl_strokeWidth="3dp"
         app:fl_strokeDrawingDuration="2000"
         app:fl_fillDuration="5000"
-        app:fl_clippingTransform="spikes"
+        app:fl_clippingTransform="waves"
         app:fl_fillPercentage="100"
         tools:ignore="MissingConstraints"
         />

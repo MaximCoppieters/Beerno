@@ -29,13 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         fillableLoader = findViewById(R.id.fillableLoader);
         fillableLoader.setSvgPath(svgPath);
-        fillableLoader.setClippingTransform(new ClippingTransform() {
-            @Override
-            public void transform(Canvas canvas, float currentFillPhase, View view) {
-                canvas.clipRect(0, (view.getBottom() - view.getTop()) * (1f - currentFillPhase),
-                        view.getRight(), view.getBottom());
-            }
-        });
+
         fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
             @Override
             public void onStateChange(int state) {
