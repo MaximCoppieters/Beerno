@@ -70,12 +70,15 @@ public class BeerRepository {
     }
 
     public Establishment getEstablishmentAtLatLng(final LatLng establishmentLatLng) {
-        for (Establishment establishment : establishments) {
+        // TODO Have to get;
+        return establishments.get(0);
+
+/*        for (Establishment establishment : establishments) {
             if (establishment.getLocation().equals(establishmentLatLng)) {
                 return establishment;
             }
         }
-        throw new Resources.NotFoundException("Establishment at location was not found");
+        throw new Resources.NotFoundException("Establishment at location was not found");*/
     }
 
     private void findAllBeers() {

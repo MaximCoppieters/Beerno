@@ -20,14 +20,11 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class EstablishmentActivity extends AppCompatActivity {
-
-    private int drinkCount;
     private TextView establishmentNameTextView;
     private Button incrementButton;
     private Button decrementButton;
     private CardView resumeButton;
     private Establishment establishment;
-    private ImageView beerImageView;
     private List<Beer> beersOnMenu;
 
     private RecyclerView recyclerView;
@@ -57,14 +54,15 @@ public class EstablishmentActivity extends AppCompatActivity {
         incrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                drinkCount++;
+                Stats.incrementBeersDrank();
+
             }
         });
 
         decrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                drinkCount--;
+                Stats.decrementBeersDrank();
             }
         });
 

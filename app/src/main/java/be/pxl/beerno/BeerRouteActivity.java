@@ -262,8 +262,7 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
             LatLng taskLocation = new LatLng(currentTask.getLatitude(), currentTask.getLongitude());
 
             if (userLocation.distanceTo(taskLocation) < radius) {
-                // todo nakijken of dit BeerRouteActivity.this moet zijn of gewoon this
-                startActivity(new Intent(BeerRouteActivity.this, EstablishmentActivity.class));
+                startActivity(new Intent(this, EstablishmentActivity.class));
                 LatLng establishmentLatLng = new LatLng(location.getLatitude(), location.getLatitude());
                 BeerRepository beerRepository = new BeerRepository();
 
@@ -271,7 +270,6 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
 
                 getIntent().putExtra("establishment", nearbyEstablishment);
                 startActivity(new Intent(this, EstablishmentActivity.class));
-
             }
         }
     }
