@@ -43,6 +43,7 @@ public class BeerSelectActivity extends AppCompatActivity {
                 startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
             }
         });
+        initializeBeerList();
     }
 
 
