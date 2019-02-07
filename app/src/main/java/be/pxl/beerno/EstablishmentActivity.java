@@ -8,15 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.List;
 
 public class EstablishmentActivity extends AppCompatActivity {
 
     private int drinkCount;
-    private String establishmentName;
+    private TextView establishmentName;
     private Button incrementButton;
     private Button decrementButton;
+    private Establishment establishment;
 
 
     @Override
@@ -27,6 +29,8 @@ public class EstablishmentActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         incrementButton = findViewById(R.id.increment_button);
         decrementButton = findViewById(R.id.decrement_button);
+        establishmentName = findViewById(R.id.establishment_name);
+        establishmentName.setText(establishment.getName());
 
         incrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
