@@ -12,18 +12,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 public class BeerSelectActivity extends AppCompatActivity {
     private List<Beer> beers;
     private RecyclerView recyclerView;
     private BeerAdapter beerAdapter;
     private CardView resumeButtonCard;
+    private FrameLayout loading_layout;
+    private LinearLayout main_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +39,19 @@ public class BeerSelectActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.beers);
+        main_layout = findViewById(R.id.main_layout);
 
         resumeButtonCard = findViewById(R.id.GO);
         resumeButtonCard.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                loading_layout = findViewById(R.id.loading_layout);
+                main_layout.setAlpha((float) 0.1);
+                loading_layout.setVisibility(View.VISIBLE);
+                try {
+                    sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
             }
         });
