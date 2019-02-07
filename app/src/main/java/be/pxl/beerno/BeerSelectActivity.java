@@ -1,10 +1,11 @@
 package be.pxl.beerno;
 
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,13 +15,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class BeerSelectActivity extends AppCompatActivity {
     private List<Beer> beers;
     private RecyclerView recyclerView;
     private BeerAdapter beerAdapter;
+    private CardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +33,18 @@ public class BeerSelectActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.beers);
 
+        cardView = findViewById(R.id.GO);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
+            }
+        });
         initializeBeerList();
     }
 
+    @Override
+    public void onBackPressed() {
+    }
 
     private void initializeBeerList() {
         beers = BeerRepository.getAllBeers();
@@ -46,7 +58,6 @@ public class BeerSelectActivity extends AppCompatActivity {
     private class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder> {
 
         private List<Beer> beers;
-        private List<Integer> selectedBeerIndexes;
 
         public BeerAdapter(List<Beer> beers) {
             this.beers = beers;
@@ -58,8 +69,6 @@ public class BeerSelectActivity extends AppCompatActivity {
         public BeerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
             View view = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.row_beer_select, viewGroup, false);
-            beers = new ArrayList<>();
-            selectedBeerIndexes = new ArrayList<>();
             return new BeerViewHolder(view);
         }
 
@@ -73,13 +82,21 @@ public class BeerSelectActivity extends AppCompatActivity {
             final Beer selectedBeer = BeerSelectActivity.this.beers.get(position);
 
             beerViewHolder.beer_name.setText(selectedBeer.getName());
-            beerViewHolder.beer_image.setImageURI(selectedBeer.getImageUri());
+            beerViewHolder.beer_image.setImageResource(selectedBeer.getImageId());
+
+            Picasso.get().load(selectedBeer.getImageId()).into(beerViewHolder.beer_image);
 
             beerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    selectedBeerIndexes.add(position);
-
+                    ImageView checkmark = v.findViewById(R.id.check_mark);
+                    if (selectedBeer.GetSelected()) {
+                        selectedBeer.setSelected(false);
+                        checkmark.setVisibility(View.GONE);
+                    } else {
+                        selectedBeer.setSelected(true);
+                        checkmark.setVisibility(View.VISIBLE);
+                    }
                 }
             });
         }

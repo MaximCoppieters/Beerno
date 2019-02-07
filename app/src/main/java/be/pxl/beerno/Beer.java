@@ -1,23 +1,21 @@
 package be.pxl.beerno;
 
-import android.net.Uri;
-
-import java.nio.file.Path;
+import android.graphics.drawable.Drawable;
 
 public class Beer {
     private String name;
-    private Uri imageUri;
+    private int imageId;
     private boolean selected;
 
     private String description;
 
-    public Beer(String name, Uri imageUri) {
-        this(name, imageUri, "");
+    public Beer(String name, int imageId) {
+        this(name, imageId, "");
     }
 
-    public Beer(String name, Uri imageUri, String description) {
+    public Beer(String name, int imageId, String description) {
         this.name = name;
-        this.imageUri = imageUri;
+        this.imageId = imageId;
         this.description = description;
     }
 
@@ -29,8 +27,8 @@ public class Beer {
         return name;
     }
 
-    public Uri getImageUri() {
-        return imageUri;
+    public int getImageId() {
+        return imageId;
     }
 
     public void setSelected(boolean selected) {

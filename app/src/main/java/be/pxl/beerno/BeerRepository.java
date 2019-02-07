@@ -14,11 +14,11 @@ public class BeerRepository {
     public static List<Beer> getAllBeers() {
         List<Beer> beers = new ArrayList<>();
 
-        Beer stella = new Beer("Stella Artois", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\stella.png"));
-        Beer jupiler = new Beer("Jupiler", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\jupiler.png"));
-        Beer guiness = new Beer("Guiness", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\guiness.jpg"));
-        Beer krusuvice = new Beer("Krušovice", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\krusovice.png"));
-        Beer heineken = new Beer("Heineken", Uri.parse("Beerno\\app\\src\\main\\res\\drawable-xxxhdpi\\heineken.png"));
+        Beer stella = new Beer("Stella Artois", R.drawable.stella);
+        Beer jupiler = new Beer("Jupiler", R.drawable.jupiler);
+        Beer guiness = new Beer("Guiness", R.drawable.guiness);
+        Beer krusuvice = new Beer("Krušovice", R.drawable.krusovice);
+        Beer heineken = new Beer("Heineken", R.drawable.heineken);
 
         beers.add(jupiler);
         beers.add(stella);
