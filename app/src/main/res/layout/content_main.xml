@@ -8,16 +8,19 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="91dp"
-            android:onClick="Start"
-            android:text="Start" />
-
-    </RelativeLayout>
-
+    <com.github.jorgecastillo.FillableLoader
+        android:id="@+id/fillableLoader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:fl_originalWidth="263"
+        app:fl_originalHeight="262"
+        app:fl_strokeColor="@color/stroke_color"
+        app:fl_fillColor="@color/fill_color"
+        app:fl_strokeWidth="3dp"
+        app:fl_strokeDrawingDuration="2000"
+        app:fl_fillDuration="5000"
+        app:fl_clippingTransform="spikes"
+        app:fl_fillPercentage="100"
+        tools:ignore="MissingConstraints"
+        />
 </android.support.constraint.ConstraintLayout>
