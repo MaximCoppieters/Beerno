@@ -7,20 +7,48 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/thebackgroundofchoice"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:gravity="top|center_horizontal"
+        android:textColor="@color/stroke_color"
+        android:text="Beerno"
+        android:textSize="40dp"
+
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
 
     <com.github.jorgecastillo.FillableLoader
         android:id="@+id/fillableLoader"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:fl_originalWidth="263"
-        app:fl_originalHeight="262"
-        app:fl_strokeColor="@color/stroke_color"
-        app:fl_fillColor="@color/fill_color"
-        app:fl_strokeWidth="3dp"
-        app:fl_strokeDrawingDuration="2000"
-        app:fl_fillDuration="2000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:fl_clippingTransform="waves"
+        app:fl_fillColor="@color/fill_color"
+        app:fl_fillDuration="2000"
         app:fl_fillPercentage="100"
+        app:fl_originalHeight="262"
+        app:fl_originalWidth="263"
+        app:fl_strokeColor="@color/stroke_color"
+        app:fl_strokeDrawingDuration="2000"
+        app:fl_strokeWidth="3dp"
         tools:ignore="MissingConstraints"
-        />
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="0dp" />
+</RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
