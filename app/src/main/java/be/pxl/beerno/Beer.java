@@ -8,7 +8,7 @@ public class Beer {
     private String name;
     private Uri imageUri;
     private boolean selected;
-    private int drinkCount;
+
     private String description;
 
     public Beer(String name, Uri imageUri) {
@@ -41,19 +41,7 @@ public class Beer {
         return selected;
     }
 
-    public int getDrinkAmount(){
-        return drinkCount;
-    }
 
-    public void IncrementDrinkCount() {
-        drinkCount++;
-    }
-
-    public void DecrementDrinkCount() {
-        if (drinkCount > 0) {
-            drinkCount--;
-        }
-    }
 
     @Override
     public String toString() {

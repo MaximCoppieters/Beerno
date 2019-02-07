@@ -7,7 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import java.util.List;
+
 public class EstablishmentActivity extends AppCompatActivity {
+
+    private int drinkCount;
+    private String establishmentName;
+    private
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,4 +24,15 @@ public class EstablishmentActivity extends AppCompatActivity {
 
     }
 
+
+
+    public void IncrementDrinkCount() {
+        drinkCount++;
+    }
+
+    public void DecrementDrinkCount() {
+        if (drinkCount > 0) {
+            drinkCount--;
+        }
+    }
 }
