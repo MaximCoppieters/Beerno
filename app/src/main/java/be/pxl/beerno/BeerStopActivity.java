@@ -1,61 +1,29 @@
 package be.pxl.beerno;
 
-import android.location.Location;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
-import com.mapbox.android.core.location.LocationEngine;
-import com.mapbox.android.core.location.LocationEngineListener;
-import com.mapbox.android.core.permissions.PermissionsListener;
-import com.mapbox.android.core.permissions.PermissionsManager;
-import com.mapbox.mapboxsdk.annotations.Marker;
-import com.mapbox.mapboxsdk.location.LocationComponent;
-import com.mapbox.mapboxsdk.maps.MapView;
-import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
-
-import java.util.List;
-
-import cz.mendelu.busItWeek.library.StoryLine;
-import cz.mendelu.busItWeek.library.Task;
-
-public class BeerStopActivity extends AppCompatActivity implements OnMapReadyCallback, PermissionsListener, LocationEngineListener {
-
-    private MapView mapView;
-    private MapboxMap mapBoxMap;
-    private PermissionsManager permissionsManager;
-    private LocationEngine locationEngine;
-    private LocationComponent locationComponent;
-
-    private StoryLine storyLine;
-    private Task currentTask;
-
-    private Marker currentMarker;
-
-    private CardView beaconScanningCard;
+public class BeerStopActivity extends AppCompatActivity {
 
     @Override
-    public void onConnected() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_beer_stop);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }
-
-    @Override
-    public void onExplanationNeeded(List<String> permissionsToExplain) {
-
-    }
-
-    @Override
-    public void onPermissionResult(boolean granted) {
-
-    }
-
-    @Override
-    public void onMapReady(MapboxMap mapboxMap) {
-
-    }
 }

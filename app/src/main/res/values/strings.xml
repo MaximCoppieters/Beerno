@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Beerno</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_beer_stop">activity_beer_stop</string>
+    <string name="title_activity_beer_route">BeerRouteActivity</string>
+    <string name="title_activity_beer_select">BeerSelectActivity</string>
+    <string name="title_activity_summary">SummaryActivity</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
 </resources>
