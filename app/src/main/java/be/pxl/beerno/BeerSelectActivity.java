@@ -1,5 +1,6 @@
 package be.pxl.beerno;
 
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -13,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -38,8 +38,9 @@ public class BeerSelectActivity extends AppCompatActivity {
             }
         });
 
-        beers = BeerRepository.getAllBeers();
+        initializeBeerList();
     }
+
 
     private void initializeBeerList() {
         beers = BeerRepository.getAllBeers();
@@ -79,7 +80,7 @@ public class BeerSelectActivity extends AppCompatActivity {
             final Beer selectedBeer = BeerSelectActivity.this.beers.get(position);
 
             beerViewHolder.beer_name.setText(selectedBeer.getName());
-            beerViewHolder.beer_image.setImageURI(selectedBeer.getImagePath());
+            beerViewHolder.beer_image.setImageURI(selectedBeer.getImageUri());
 
             beerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

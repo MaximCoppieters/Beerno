@@ -2,20 +2,22 @@ package be.pxl.beerno;
 
 import android.net.Uri;
 
+import java.nio.file.Path;
+
 public class Beer {
     private String name;
-    private Uri imagePath;
+    private Uri imageUri;
     private boolean selected;
     private int drinkCount;
     private String description;
 
-    public Beer(String name, Uri imagePath) {
-        this(name, imagePath, "");
+    public Beer(String name, Uri imageUri) {
+        this(name, imageUri, "");
     }
 
-    public Beer(String name, Uri imagePath, String description) {
+    public Beer(String name, Uri imageUri, String description) {
         this.name = name;
-        this.imagePath = imagePath;
+        this.imageUri = imageUri;
         this.description = description;
     }
 
@@ -27,8 +29,8 @@ public class Beer {
         return name;
     }
 
-    public Uri getImagePath() {
-        return imagePath;
+    public Uri getImageUri() {
+        return imageUri;
     }
 
     public void setSelected(boolean selected) {

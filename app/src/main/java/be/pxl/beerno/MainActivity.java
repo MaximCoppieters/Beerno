@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void start(View view) {
+    public void Start(View view) {
         Intent intent = new Intent(MainActivity.this, BeerSelectActivity.class);
         startActivity(intent);
     }
