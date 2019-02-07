@@ -1,12 +1,13 @@
 package be.pxl.beerno;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EstablishmentRepository {
 
 
     // TODO: integrate google places
-    public static void getNearbyEstablishments() {
+    public static List<Establishment> getNearbyEstablishments() {
         List<Establishment> nearbyEstablishments = new ArrayList<>();
 
         Establishment irishPub = new Establishment();

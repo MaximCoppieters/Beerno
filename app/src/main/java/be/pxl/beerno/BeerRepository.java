@@ -1,14 +1,19 @@
 package be.pxl.beerno;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BeerRepository {
 
     public static List<Beer> getAllBeers() {
         List<Beer> beers = new ArrayList<>();
 
-        beers.add(new Beer());
-        beers.add(new Beer());
+
+        Beer stella = new Beer();
+        Beer jupiler = new Beer();
+
+        beers.add(jupiler);
+        beers.add(stella);
 
         return beers;
     }
