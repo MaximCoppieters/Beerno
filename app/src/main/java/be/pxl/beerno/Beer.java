@@ -1,20 +1,30 @@
 package be.pxl.beerno;
 
+<<<<<<< HEAD
+=======
+import android.graphics.drawable.Drawable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> 28d86060560b9423812870571e42c50566a35eb0
 public class Beer {
     private String name;
     private int imageId;
     private boolean selected;
+    private List<Establishment> establishmentsServedAt;
 
     private String description;
 
     public Beer(String name, int imageId) {
-        this(name, imageId, "");
+        this(name, imageId, "", new ArrayList<Establishment>());
     }
 
-    public Beer(String name, int imageId, String description) {
+    public Beer(String name, int imageId, String description, List<Establishment> establishmentsServedAt) {
         this.name = name;
         this.imageId = imageId;
         this.description = description;
+        this.establishmentsServedAt = establishmentsServedAt;
     }
 
     public String getDescription() {
@@ -37,7 +47,10 @@ public class Beer {
         return selected;
     }
 
-
+    public void associateBeerWithEstablishment(Establishment establishment) {
+        establishmentsServedAt.add(establishment);
+        establishment.addBeerToMenu(this);
+    }
 
     @Override
     public String toString() {
