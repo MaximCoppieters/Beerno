@@ -28,7 +28,7 @@
         android:textColor="@color/colorText"
         android:text="Beerno"
         android:textSize="60dp"
-
+        
         android:textStyle="bold"
         tools:ignore="MissingConstraints" />
 
