@@ -46,6 +46,7 @@ public class BeerSelectActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loading_layout = findViewById(R.id.loading_layout);
                 main_layout.setAlpha((float) 0.1);
+                
                 loading_layout.setVisibility(View.VISIBLE);
                 try {
                     sleep(3000);
