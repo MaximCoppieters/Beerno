@@ -1,7 +1,5 @@
 package be.pxl.beerno;
 
-import android.graphics.drawable.Drawable;
-
 public class Beer {
     private String name;
     private int imageId;
