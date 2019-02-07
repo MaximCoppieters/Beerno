@@ -17,9 +17,9 @@
 
             android:id="@+id/beers"
             android:layout_width="match_parent"
-            android:layout_height="590dp"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
-            tools:listitem="@layout/recycler_view_item">
+            tools:listitem="@layout/row_beer_select">
 
         </android.support.v7.widget.RecyclerView>
 

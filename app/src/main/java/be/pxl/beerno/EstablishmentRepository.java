@@ -22,8 +22,8 @@ public class EstablishmentRepository extends Establishment {
         //bar,ktery neexistuje coords 49.195918, 16.609724
         // Cubana coords 49.197033, 16.609721
 
-        Establishment irishPub = new Establishment("Irish Pub", new LatLng(49.196244, 16.608121),
-                new List<Beer>{});
+//        Establishment irishPub = new Establishment("Irish Pub", new LatLng(49.196244, 16.608121),
+//                new List<Beer>{});
         Establishment littleBigBar=new Establishment();
         Establishment shotBar=new Establishment();
         Establishment aloha=new Establishment();
@@ -31,7 +31,7 @@ public class EstablishmentRepository extends Establishment {
         Establishment cubana=new Establishment();
 
 
-        nearbyEstablishments.add(irishPub);
+//        nearbyEstablishments.add(irishPub);
         nearbyEstablishments.add(littleBigBar);
         nearbyEstablishments.add(shotBar);
         nearbyEstablishments.add(aloha);
