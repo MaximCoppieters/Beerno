@@ -5,16 +5,11 @@ import cz.mendelu.busItWeek.library.builder.StoryLineBuilder;
 
 public class DatabaseHelper extends StoryLineDatabaseHelper {
     public DatabaseHelper() {
-        super(22);
+        super(28);
     }
 
     @Override
     protected void onCreate(StoryLineBuilder builder) {
-        builder.addGPSTask("0")
-                .location(49.188452, 16.591402)
-                .radius(100)
-                .victoryPoints(10)
-                .taskDone();
 
         builder.addGPSTask("1")
                 .location(49.209742, 16.614986)
@@ -23,13 +18,13 @@ public class DatabaseHelper extends StoryLineDatabaseHelper {
                 .taskDone();
 
         builder.addGPSTask("2")
-                .location(49.219742, 16.624986)
+                .location(49.210006, 16.614782)
                 .radius(100)
                 .victoryPoints(10)
                 .taskDone();
 
         builder.addGPSTask("3")
-                .location(49.239742, 16.644986)
+                .location(49.209782, 16.614963)
                 .radius(100)
                 .victoryPoints(10)
                 .taskDone();

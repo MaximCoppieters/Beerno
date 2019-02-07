@@ -244,7 +244,7 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
 
             if (userLocation.distanceTo(taskLocation) < radius) {
 
-                startActivity(new Intent(this, BeerStopActivity.class));
+                startActivity(new Intent(this, EstablishmentActivity.class));
             }
         }
     }
