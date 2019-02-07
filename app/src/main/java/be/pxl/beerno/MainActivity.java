@@ -30,22 +30,17 @@ public class MainActivity extends AppCompatActivity {
         fillableLoader = findViewById(R.id.fillableLoader);
         fillableLoader.setSvgPath(svgPath);
 
-//        fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
-//            @Override
-//            public void onStateChange(int state) {
-//                if(state == State.FINISHED){
-//                    startActivity(new Intent(MainActivity.this,
-//                            BeerSelectActivity.class));
-//                }
-//            }
-//        });
+        fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
+            @Override
+            public void onStateChange(int state) {
+                if(state == State.FINISHED){
+                    startActivity(new Intent(MainActivity.this,
+                            BeerSelectActivity.class));
+                }
+            }
+        });
 
-//        fillableLoader.start();
-        //todo                ----------------------------------------------
-//       todo                |      test code, DELETE AFTER USE             |
-        //todo                ----------------------------------------------
-
-        startActivity(new Intent(MainActivity.this, EstablishmentActivity.class));
+        fillableLoader.start();
     }
 
     private Context getActivity() {

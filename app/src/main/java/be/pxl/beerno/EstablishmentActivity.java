@@ -28,6 +28,7 @@ public class EstablishmentActivity extends AppCompatActivity {
     private Establishment establishment;
     private ImageView beer_image;
     private List<Beer> beerList;
+    private BeerRepository beerRepository;
 
 
     @Override
@@ -41,7 +42,8 @@ public class EstablishmentActivity extends AppCompatActivity {
         resumeButton = findViewById(R.id.resume);
         establishmentName = findViewById(R.id.establishment_name);
         //establishmentName.setText(establishment.getName());
-        beerList = BeerRepository.getAllBeers();
+        beerRepository = new BeerRepository();
+        beerList = beerRepository.getAllBeers();
         beer_image = findViewById(R.id.beer_image);
         for (Beer beer : beerList
              ) {
