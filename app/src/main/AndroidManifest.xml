@@ -20,11 +20,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".BeerStopActivity"
-            android:label="@string/title_activity_beer_stop"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".BeerSelectActivity"
             android:label="@string/title_activity_beer_select"
             android:theme="@style/AppTheme.NoActionBar"
