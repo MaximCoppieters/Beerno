@@ -33,7 +33,6 @@ public class EstablishmentActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private BeerAdapter beerAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,18 +45,14 @@ public class EstablishmentActivity extends AppCompatActivity {
         decrementButton = findViewById(R.id.decrement_button);
         resumeButton = findViewById(R.id.resume);
 
-
         recyclerView = findViewById(R.id.beers);
 
         establishmentNameTextView = findViewById(R.id.establishment_name);
         establishmentNameTextView.setText(establishment.getName());
 
         beersOnMenu = establishment.getBeers();
-        beerImageView = findViewById(R.id.beer_image);
-        for (Beer beer : beersOnMenu) {
-            beerImageView.setImageResource(beer.getImageId());
-            Picasso.get().load(beer.getImageId()).into(beerImageView);
-        }
+
+        initializeBeerList();
 
         incrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +97,6 @@ public class EstablishmentActivity extends AppCompatActivity {
             this.beers = beers;
         }
 
-
         @NonNull
         @Override
         public BeerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
@@ -141,7 +135,6 @@ public class EstablishmentActivity extends AppCompatActivity {
         }
 
         public class BeerViewHolder extends RecyclerView.ViewHolder {
-
             public TextView beer_name;
             public ImageView beer_image;
 
