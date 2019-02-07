@@ -18,15 +18,18 @@ public class DatabaseHelper extends StoryLineDatabaseHelper {
 
         List<Establishment> nearbyEstablishments = beerRepository.getNearbyEstablishments();
 
-        for (Establishment nearbyEstablishment : nearbyEstablishments) {
-            LatLng establishmentLocation = nearbyEstablishment.getLocation();
 
-            builder.addGPSTask(nearbyEstablishment.getName())
-                    .location(establishmentLocation.getLatitude(), establishmentLocation.getLongitude())
-                    .radius(100)
-                    .victoryPoints(10)
-                    .taskDone();
-        }
+
+//todo terug uncommenten
+//        for (Establishment nearbyEstablishment : nearbyEstablishments) {
+//            LatLng establishmentLocation = nearbyEstablishment.getLocation();
+//
+//            builder.addGPSTask(nearbyEstablishment.getName())
+//                    .location(establishmentLocation.getLatitude(), establishmentLocation.getLongitude())
+//                    .radius(100)
+//                    .victoryPoints(10)
+//                    .taskDone();
+//        }
 
         builder.addGPSTask("1")
                 .location(49.215322, 16.630016)
