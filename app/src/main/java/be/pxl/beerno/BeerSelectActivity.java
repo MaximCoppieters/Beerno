@@ -23,7 +23,7 @@ public class BeerSelectActivity extends AppCompatActivity {
     private List<Beer> beers;
     private RecyclerView recyclerView;
     private BeerAdapter beerAdapter;
-    private CardView cardView;
+    private CardView resumeButtonCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,8 @@ public class BeerSelectActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.beers);
 
-        cardView = findViewById(R.id.GO);
-        cardView.setOnClickListener(new View.OnClickListener() {
+        resumeButtonCard = findViewById(R.id.GO);
+        resumeButtonCard.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
             }
@@ -104,7 +104,6 @@ public class BeerSelectActivity extends AppCompatActivity {
         }
 
         public class BeerViewHolder extends RecyclerView.ViewHolder {
-
             public TextView beer_name;
             public ImageView beer_image;
 
