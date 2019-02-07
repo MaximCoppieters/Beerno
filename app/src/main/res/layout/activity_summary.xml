@@ -5,12 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SummaryActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/thebackgroundofchoice"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CONGRATULATIONS!"
         android:textSize="30dp"
+        android:textColor="@color/colorText"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp" />
 
@@ -28,11 +36,13 @@
         android:textSize="30dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginTop="200dp"
+        android:textColor="@color/colorText"
         android:textAlignment="center"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="X"
+        android:textColor="@color/colorText"
         android:textSize="75dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginTop="200dp"/>
