@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".EstablishmentActivity"
+            android:label="@string/title_activity_establishment"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".WelcomeActivity"
             android:label="@string/title_activity_welcome"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SummaryActivity"
             android:label="@string/title_activity_summary"

@@ -6,4 +6,5 @@
     <string name="title_activity_beer_select">BeerSelectActivity</string>
     <string name="title_activity_summary">SummaryActivity</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_establishment">EstablishmentActivity</string>
 </resources>
