@@ -29,8 +29,10 @@
         <ImageView
             android:id="@+id/check_mark"
             android:layout_width="50dp"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:visibility="invisible"
+            android:src="@drawable/checkmark"
+            android:layout_gravity="end|center_vertical"
             />
     </android.support.v7.widget.CardView>
 

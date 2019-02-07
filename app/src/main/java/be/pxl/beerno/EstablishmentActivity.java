@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class EstablishmentActivity extends AppCompatActivity {
 
     private int drinkCount;
     private String establishmentName;
+    private Button incrementButton;
 
 
     @Override
@@ -21,8 +23,10 @@ public class EstablishmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_establishment);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        incrementButton = findViewById(R.id.increment_button);
 
     }
+
 
 
 
