@@ -41,6 +41,7 @@
         android:textColor="@color/colorText"
         android:textAlignment="center"/>
     <TextView
+        android:id="@+id/total_beer_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="X"

@@ -4,11 +4,16 @@ public class Stats {
 
     private static int totalBeersDrank;
 
-    public static int getTotalBeersDrank() {
-        return totalBeersDrank;
+    public static void incrementBeersDrank() {
+        totalBeersDrank++;
     }
 
-    public int getTotalBeers() {
+    public static void decrementBeersDrank() {
+        totalBeersDrank--;
+        totalBeersDrank = Math.max(0, totalBeersDrank);
+    }
+
+    public static int getTotalBeersDrank() {
         return totalBeersDrank;
     }
 }
