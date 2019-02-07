@@ -6,4 +6,7 @@
     <color name="colorButton">#C4C4C4</color>
     <color name="stroke_color">#000</color>
     <color name="fill_color">#EEDB29</color>
+    <color name="colorPosButton">#229B00</color>
+    <color name="colorNegButton">#B30000</color>
+    <color name="colorText">#FFFFFF</color>
 </resources>

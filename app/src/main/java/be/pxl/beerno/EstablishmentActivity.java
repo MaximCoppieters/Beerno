@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class EstablishmentActivity extends AppCompatActivity {
     private int drinkCount;
     private String establishmentName;
     private Button incrementButton;
+    private Button decrementButton;
 
 
     @Override
@@ -24,19 +26,19 @@ public class EstablishmentActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         incrementButton = findViewById(R.id.increment_button);
+        decrementButton = findViewById(R.id.decrement_button);
 
-    }
-
-
-
-
-    public void IncrementDrinkCount() {
-        drinkCount++;
-    }
-
-    public void DecrementDrinkCount() {
-        if (drinkCount > 0) {
-            drinkCount--;
-        }
+        incrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drinkCount++;
+            }
+        });
+        decrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drinkCount--;
+            }
+        });
     }
 }
