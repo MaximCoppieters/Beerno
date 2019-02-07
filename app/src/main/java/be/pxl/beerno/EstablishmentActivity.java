@@ -36,10 +36,9 @@ public class EstablishmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle establishmentBundle = getIntent().getExtras();
-        establishment = (Establishment) establishmentBundle.get("establishment");
-
         super.onCreate(savedInstanceState);
+        establishment = (Establishment) getIntent().getSerializableExtra("establishment");
+
         setContentView(R.layout.activity_establishment);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

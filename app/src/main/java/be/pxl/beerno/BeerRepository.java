@@ -1,5 +1,7 @@
 package be.pxl.beerno;
 
+import android.content.res.Resources;
+
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
@@ -65,6 +67,15 @@ public class BeerRepository {
         beers.add(krusuvice);
         beers.add(heineken);
         beers.add(jupiler);
+    }
+
+    public Establishment getEstablishmentAtLatLng(final LatLng establishmentLatLng) {
+        for (Establishment establishment : establishments) {
+            if (establishment.getLocation().equals(establishmentLatLng)) {
+                return establishment;
+            }
+        }
+        throw new Resources.NotFoundException("Establishment at location was not found");
     }
 
     private void findAllBeers() {
