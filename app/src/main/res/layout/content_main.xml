@@ -7,20 +7,50 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/thebackgroundofchoice"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:text="Beerno"
+        android:textSize="60dp"
+
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
 
     <com.github.jorgecastillo.FillableLoader
         android:id="@+id/fillableLoader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:fl_originalWidth="263"
-        app:fl_originalHeight="262"
-        app:fl_strokeColor="@color/stroke_color"
-        app:fl_fillColor="@color/fill_color"
-        app:fl_strokeWidth="3dp"
-        app:fl_strokeDrawingDuration="2000"
-        app:fl_fillDuration="2000"
         app:fl_clippingTransform="waves"
+        app:fl_fillColor="@color/fill_color"
+        app:fl_fillDuration="2000"
         app:fl_fillPercentage="100"
+        app:fl_originalHeight="300"
+        app:fl_originalWidth="250"
+        app:fl_strokeColor="@color/stroke_color"
+        app:fl_strokeDrawingDuration="2000"
+        app:fl_strokeWidth="3dp"
         tools:ignore="MissingConstraints"
+        android:foregroundGravity="center|bottom"
+        android:layout_marginTop="120dp"
         />
+
+</RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
