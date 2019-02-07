@@ -39,6 +39,10 @@ public class Beer {
         return selected;
     }
 
+    public int getDrinkAmount(){
+        return drinkCount;
+    }
+
     public void IncrementDrinkCount() {
         drinkCount++;
     }
