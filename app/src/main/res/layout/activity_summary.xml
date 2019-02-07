@@ -38,6 +38,7 @@
         android:layout_marginTop="200dp"/>
 
     <android.support.v7.widget.CardView
+        android:id="@+id/finish"
         app:cardBackgroundColor="@color/colorButton"
         app:cardCornerRadius="15dp"
         style="@style/bottom_button_cardview">
