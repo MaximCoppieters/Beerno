@@ -30,7 +30,7 @@ public class EstablishmentActivity extends AppCompatActivity {
         incrementButton = findViewById(R.id.increment_button);
         decrementButton = findViewById(R.id.decrement_button);
         establishmentName = findViewById(R.id.establishment_name);
-        establishmentName.setText(establishment.getName());
+        //establishmentName.setText(establishment.getName());
 
         incrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
