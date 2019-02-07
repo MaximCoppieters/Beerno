@@ -1,7 +1,6 @@
 package be.pxl.beerno;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BeerSelectActivity extends AppCompatActivity {
@@ -35,6 +33,9 @@ public class BeerSelectActivity extends AppCompatActivity {
         initializeBeerList();
     }
 
+    @Override
+    public void onBackPressed() {
+    }
 
     private void initializeBeerList() {
         beers = BeerRepository.getAllBeers();
@@ -72,9 +73,9 @@ public class BeerSelectActivity extends AppCompatActivity {
             final Beer selectedBeer = BeerSelectActivity.this.beers.get(position);
 
             beerViewHolder.beer_name.setText(selectedBeer.getName());
-            beerViewHolder.beer_image.setImageURI(selectedBeer.getImageUri());
+            beerViewHolder.beer_image.setImageResource(selectedBeer.getImageId());
 
-            Picasso.get().load(selectedBeer.getImageUri()).into(beerViewHolder.beer_image);
+            Picasso.get().load(selectedBeer.getImageId()).into(beerViewHolder.beer_image);
 
             beerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
