@@ -10,6 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".WelcomeActivity"
+            android:label="@string/title_activity_welcome"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SummaryActivity"
+            android:label="@string/title_activity_summary"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BeerStopActivity"
+            android:label="@string/title_activity_beer_stop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BeerSelectActivity"
+            android:label="@string/title_activity_beer_select"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BeerRouteActivity"
+            android:label="@string/title_activity_beer_route"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
