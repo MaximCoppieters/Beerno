@@ -9,12 +9,6 @@ public class BeerRepository {
         List<Beer> beers = new ArrayList<>();
 
 
-        Beer stella = new Beer();
-        Beer jupiler = new Beer();
-
-        beers.add(jupiler);
-        beers.add(stella);
-
         return beers;
     }
 }
