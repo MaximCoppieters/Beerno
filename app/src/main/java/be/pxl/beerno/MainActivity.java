@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         fillableLoader.setSvgPath(svgPath);
 
         fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
+
            @Override
         public void onStateChange(int state) {
                if(state == State.FINISHED){
@@ -66,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void Start(View view) {
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
+//    public void Start(View view) {
+//        Intent intent = new Intent(MainActivity.this, BeerSelectActivity.class);
+//        startActivity(intent);
+//    }
 }
