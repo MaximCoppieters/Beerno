@@ -13,7 +13,7 @@ public class EstablishmentActivity extends AppCompatActivity {
 
     private int drinkCount;
     private String establishmentName;
-    private
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

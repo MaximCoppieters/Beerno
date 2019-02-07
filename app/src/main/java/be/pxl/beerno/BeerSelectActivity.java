@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BeerSelectActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class BeerSelectActivity extends AppCompatActivity {
     private BeerAdapter beerAdapter;
 
     private CardView cardView;
+    private CardView beerCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,15 @@ public class BeerSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_beer_select);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        initializeBeerList();
+//        recyclerView = findViewById(R.id.beers);
 
-        recyclerView = findViewById(R.id.beers);
-
+        beerCardView = findViewById(R.id.beer_select);
+        beerCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                beerCardView.setVisibility(View.VISIBLE);
+            }
+        });
         cardView = findViewById(R.id.GO);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +78,7 @@ public class BeerSelectActivity extends AppCompatActivity {
         public BeerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
             View view = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.row_beer_select, viewGroup, false);
-
+            selectedBeerIndexes = new ArrayList<>();
             return new BeerViewHolder(view);
         }
 
