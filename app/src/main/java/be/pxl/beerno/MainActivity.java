@@ -30,6 +30,21 @@ public class MainActivity extends AppCompatActivity {
         fillableLoader = findViewById(R.id.fillableLoader);
         fillableLoader.setSvgPath(svgPath);
 
+<<<<<<< HEAD
+     fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
+           @Override
+        public void onStateChange(int state) {
+               if(state == State.FINISHED){
+                startActivity(new Intent(MainActivity.this,
+                         BeerSelectActivity.class));
+              }
+           }
+        });
+
+        fillableLoader.start();
+
+        startActivity(new Intent(MainActivity.this, EstablishmentActivity.class));
+=======
         fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
             @Override
             public void onStateChange(int state) {
@@ -41,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         fillableLoader.start();
+>>>>>>> 28d86060560b9423812870571e42c50566a35eb0
     }
 
     private Context getActivity() {
@@ -69,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void Start(View view) {
-        Intent intent = new Intent(MainActivity.this, BeerSelectActivity.class);
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

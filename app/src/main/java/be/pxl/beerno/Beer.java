@@ -1,10 +1,13 @@
 package be.pxl.beerno;
 
+<<<<<<< HEAD
+=======
 import android.graphics.drawable.Drawable;
 
 import java.util.ArrayList;
 import java.util.List;
 
+>>>>>>> 28d86060560b9423812870571e42c50566a35eb0
 public class Beer {
     private String name;
     private int imageId;

@@ -29,6 +29,7 @@ import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.location.LocationComponent;
 import com.mapbox.mapboxsdk.maps.MapView;
@@ -198,7 +199,17 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
                 }
                 locationComponent.activateLocationComponent(this);
                 locationComponent.setLocationComponentEnabled(true);
+                double latitudeCurrentTask = currentTask.getLatitude();
+                double longtitudeCurrentTask = currentTask.getLongitude();
+                LatLng currentTaskLatlng = new LatLng();
+                currentTaskLatlng.setLatitude(latitudeCurrentTask);
+                currentTaskLatlng.setLongitude(longtitudeCurrentTask);
 
+                mapboxMap.setCameraPosition(new CameraPosition
+                        .Builder()
+                        .target(currentTaskLatlng)
+                        .build()
+                );
             }
         } else {
             permissionsManager = new PermissionsManager(this);
