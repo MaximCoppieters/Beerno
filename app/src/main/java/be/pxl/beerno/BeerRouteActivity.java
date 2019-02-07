@@ -208,6 +208,17 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
                                 .build()
                 );
 
+                double latitudeCurrentTask = currentTask.getLatitude();
+                double longtitudeCurrentTask = currentTask.getLongitude();
+                LatLng currentTaskLatlng = new LatLng();
+                currentTaskLatlng.setLatitude(latitudeCurrentTask);
+                currentTaskLatlng.setLongitude(longtitudeCurrentTask);
+
+                mapboxMap.setCameraPosition(new CameraPosition
+                        .Builder()
+                        .target(currentTaskLatlng)
+                        .build()
+                );
             }
         } else {
             permissionsManager = new PermissionsManager(this);
@@ -252,8 +263,8 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
             LatLng taskLocation = new LatLng(currentTask.getLatitude(), currentTask.getLongitude());
 
             if (userLocation.distanceTo(taskLocation) < radius) {
-
-                startActivity(new Intent(this, EstablishmentActivity.class));
+                // todo nakijken of dit BeerRouteActivity.this moet zijn of gewoon this
+                startActivity(new Intent(BeerRouteActivity.this, EstablishmentActivity.class));
             }
         }
     }

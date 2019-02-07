@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Beer {
     private String name;
     private int imageId;
