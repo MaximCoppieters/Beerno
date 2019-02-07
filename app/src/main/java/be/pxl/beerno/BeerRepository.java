@@ -64,6 +64,7 @@ public class BeerRepository {
         beers.add(guiness);
         beers.add(krusuvice);
         beers.add(heineken);
+        beers.add(jupiler);
     }
 
     private void findAllBeers() {
