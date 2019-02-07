@@ -1,5 +1,6 @@
 package be.pxl.beerno;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -30,7 +32,7 @@ public class EstablishmentActivity extends AppCompatActivity {
     private BeerRepository beerRepository;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         beerRepository = BeerRepository.getInstance();
@@ -54,6 +56,7 @@ public class EstablishmentActivity extends AppCompatActivity {
         resumeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(EstablishmentActivity.this, "On to the next pub!", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(EstablishmentActivity.this, BeerRouteActivity.class));
             }
         });

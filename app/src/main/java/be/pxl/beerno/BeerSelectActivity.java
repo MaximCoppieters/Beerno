@@ -50,6 +50,7 @@ public class BeerSelectActivity extends AppCompatActivity {
                 loading_layout.setVisibility(View.VISIBLE);
                 try {
                     sleep(3000);
+                    Thread.yield();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
