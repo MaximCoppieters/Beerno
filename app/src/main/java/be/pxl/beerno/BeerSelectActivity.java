@@ -39,6 +39,7 @@ public class BeerSelectActivity extends AppCompatActivity {
                 startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
             }
         });
+
         initializeBeerList();
     }
 
@@ -47,7 +48,8 @@ public class BeerSelectActivity extends AppCompatActivity {
     }
 
     private void initializeBeerList() {
-        beers = BeerRepository.getAllBeers();
+        BeerRepository beerRepository = new BeerRepository();
+        beers = beerRepository.getAllBeers();
 
         beerAdapter = new BeerAdapter(beers);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);

@@ -2,20 +2,23 @@ package be.pxl.beerno;
 
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Establishment {
 
     private String name;
     private LatLng location;
-    private List<Beer> beerList;
+    private List<Beer> beerMenu;
 
-    public Establishment() { }
+    public Establishment(String name, LatLng location) {
+        this(name, location, new ArrayList<Beer>());
+    }
 
     public Establishment(String name, LatLng location, List<Beer> beerList) {
         this.name = name;
         this.location = location;
-        this.beerList = beerList;
+        this.beerMenu = beerList;
     }
 
     public String getName() {
@@ -27,7 +30,11 @@ public class Establishment {
     }
 
     public List<Beer> getBeers() {
-        return beerList;
+        return beerMenu;
+    }
+
+    public void addBeerToMenu(Beer beer) {
+        beerMenu.add(beer);
     }
 
     @Override
@@ -35,7 +42,7 @@ public class Establishment {
         return "Establishment{" +
                 "name='" + name + '\'' +
                 ", location=" + location +
-                ", Beers=" + beerList +
+                ", Beers=" + beerMenu +
                 '}';
     }
 }
