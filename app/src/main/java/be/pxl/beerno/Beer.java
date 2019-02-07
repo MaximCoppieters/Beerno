@@ -44,7 +44,7 @@ public class Beer implements Serializable {
         this.selected = selected;
     }
 
-    public boolean GetSelected() {
+    public boolean getSelected() {
         return selected;
     }
 

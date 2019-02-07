@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -48,7 +47,7 @@ public class BeerSelectActivity extends AppCompatActivity {
                 main_layout.setAlpha((float) 0.1);
                 loading_layout.setVisibility(View.VISIBLE);
                 try {
-                    sleep(3000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -107,7 +106,7 @@ public class BeerSelectActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView checkmark = v.findViewById(R.id.check_mark);
-                    if (selectedBeer.GetSelected()) {
+                    if (selectedBeer.getSelected()) {
                         selectedBeer.setSelected(false);
                         checkmark.setVisibility(View.GONE);
                     } else {
