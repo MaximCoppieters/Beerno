@@ -5,7 +5,7 @@ import cz.mendelu.busItWeek.library.builder.StoryLineBuilder;
 
 public class DatabaseHelper extends StoryLineDatabaseHelper {
     public DatabaseHelper() {
-        super(28);
+        super(29);
     }
 
     @Override
