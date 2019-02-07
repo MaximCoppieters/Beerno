@@ -18,7 +18,7 @@
             android:id="@+id/beer_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            tools:src="@tools:sample/avatars"/>
+            />
         <TextView
             android:id="@+id/beer_name"
             android:layout_width="wrap_content"
