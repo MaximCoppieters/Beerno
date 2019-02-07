@@ -1,6 +1,8 @@
 package be.pxl.beerno;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,14 +12,45 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.github.jorgecastillo.FillableLoader;
+import com.github.jorgecastillo.State;
+import com.github.jorgecastillo.clippingtransforms.ClippingTransform;
+import com.github.jorgecastillo.listener.OnStateChangeListener;
+
 public class MainActivity extends AppCompatActivity {
 
+    private String svgPath = SvgPathUtil.svgPath3;
+    private FillableLoader fillableLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        fillableLoader = findViewById(R.id.fillableLoader);
+        fillableLoader.setSvgPath(svgPath);
+        fillableLoader.setClippingTransform(new ClippingTransform() {
+            @Override
+            public void transform(Canvas canvas, float currentFillPhase, View view) {
+                canvas.clipRect(0, (view.getBottom() - view.getTop()) * (1f - currentFillPhase),
+                        view.getRight(), view.getBottom());
+            }
+        });
+        fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
+            @Override
+            public void onStateChange(int state) {
+                if(state == State.FINISHED){
+                    startActivity(new Intent(MainActivity.this,
+                            BeerSelectActivity.class));
+                }
+            }
+        });
+
+        fillableLoader.start();
+    }
+
+    private Context getActivity() {
+        return this;
     }
 
     @Override
@@ -41,9 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
     public void Start(View view) {
-        Intent intent = new Intent(MainActivity.this, BeerSelectActivity.class);
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

@@ -1,3 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <integer name="original_svg_width">12</integer>
+    <integer name="original_svg_height">10</integer>
+    <integer name="stroke_width">5</integer>
+    <integer name="stroke_drawing_duration">1000</integer>
+    <integer name="fill_duration">5000</integer>
+    <integer name="fill_percentage">100</integer>
 </resources>
