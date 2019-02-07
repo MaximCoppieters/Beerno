@@ -21,25 +21,24 @@ import java.util.List;
 
 public class EstablishmentActivity extends AppCompatActivity {
     private TextView establishmentNameTextView;
-    private Button incrementButton;
-    private Button decrementButton;
     private CardView resumeButton;
     private Establishment establishment;
     private List<Beer> beersOnMenu;
 
     private RecyclerView recyclerView;
     private BeerAdapter beerAdapter;
+    private BeerRepository beerRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        establishment = (Establishment) getIntent().getSerializableExtra("establishment");
+
+        beerRepository = BeerRepository.getInstance();
+        establishment = beerRepository.getEstablishmentVisiting();
 
         setContentView(R.layout.activity_establishment);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        incrementButton = findViewById(R.id.increment_button);
-        decrementButton = findViewById(R.id.decrement_button);
         resumeButton = findViewById(R.id.resume);
 
         recyclerView = findViewById(R.id.beers);
@@ -51,20 +50,6 @@ public class EstablishmentActivity extends AppCompatActivity {
 
         initializeBeerList();
 
-        incrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Stats.incrementBeersDrank();
-
-            }
-        });
-
-        decrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Stats.decrementBeersDrank();
-            }
-        });
 
         resumeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +84,7 @@ public class EstablishmentActivity extends AppCompatActivity {
         @Override
         public BeerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
             View view = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.row_beer_select, viewGroup, false);
+                    .inflate(R.layout.row_beer_establishment, viewGroup, false);
             return new BeerViewHolder(view);
         }
 
@@ -114,6 +99,7 @@ public class EstablishmentActivity extends AppCompatActivity {
 
             beerViewHolder.beer_name.setText(selectedBeer.getName());
             beerViewHolder.beer_image.setImageResource(selectedBeer.getImageId());
+            beerViewHolder.beer_count.setText("0");
 
             Picasso.get().load(selectedBeer.getImageId()).into(beerViewHolder.beer_image);
 
@@ -130,16 +116,34 @@ public class EstablishmentActivity extends AppCompatActivity {
                     }
                 }
             });
+            Button incrementButton = beerViewHolder.itemView.findViewById(R.id.increment_button);
+            Button decrementButton = beerViewHolder.itemView.findViewById(R.id.decrement_button);
+
+            incrementButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Stats.incrementBeersDrank();
+                }
+            });
+
+            decrementButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Stats.decrementBeersDrank();
+                }
+            });
         }
 
         public class BeerViewHolder extends RecyclerView.ViewHolder {
             public TextView beer_name;
+            public TextView beer_count;
             public ImageView beer_image;
 
             public BeerViewHolder(@NonNull View itemView) {
                 super(itemView);
                 beer_name = itemView.findViewById(R.id.beer_name);
                 beer_image = itemView.findViewById(R.id.beer_image);
+                beer_count = itemView.findViewById(R.id.beer_image);
             }
         }
     }

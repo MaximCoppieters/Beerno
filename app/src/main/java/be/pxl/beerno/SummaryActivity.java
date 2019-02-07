@@ -20,8 +20,6 @@ public class SummaryActivity extends AppCompatActivity {
         TextView beerDrinkTextView = findViewById(R.id.total_beer_count);
 
         beerDrinkTextView.setText(Stats.getTotalBeersDrank());
-
-
     }
 
 }

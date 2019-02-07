@@ -33,6 +33,13 @@
                 android:layout_gravity="center"
                 android:padding="5dp"
                 tools:text="@tools:sample/lorem" />
+            <TextView
+                android:id="@+id/beer_count"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:layout_marginRight="60dp"
+                tools:text="@tools:sample/lorem" />
             <Button
                 android:id="@+id/increment_button"
                 android:layout_width="50dp"

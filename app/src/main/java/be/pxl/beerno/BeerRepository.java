@@ -1,6 +1,5 @@
 package be.pxl.beerno;
 
-import android.content.res.Resources;
 
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
@@ -10,9 +9,17 @@ import java.util.List;
 public class BeerRepository {
     private List<Beer> beers;
     private List<Establishment> establishments;
+    private Establishment establishmentVisiting;
 
-    public BeerRepository() {
+    private static final BeerRepository instance = new BeerRepository();
+
+    //private constructor to avoid client applications to use constructor
+    private BeerRepository() {
         initializeRepository();
+    }
+
+    public static BeerRepository getInstance() {
+        return instance;
     }
 
     private void initializeRepository() {
@@ -82,6 +89,14 @@ public class BeerRepository {
     }
 
     private void findAllBeers() {
+    }
+
+    public void setEstablishmentVisitingAtLocation(LatLng location) {
+        establishmentVisiting = getEstablishmentAtLatLng(location);
+    }
+
+    public Establishment getEstablishmentVisiting() {
+        return establishmentVisiting;
     }
 
     public List<Beer> getAllBeers() {

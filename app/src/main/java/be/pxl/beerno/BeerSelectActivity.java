@@ -65,7 +65,7 @@ public class BeerSelectActivity extends AppCompatActivity {
     }
 
     private void initializeBeerList() {
-        BeerRepository beerRepository = new BeerRepository();
+        BeerRepository beerRepository = BeerRepository.getInstance();
         beers = beerRepository.getAllBeers();
 
         beerAdapter = new BeerAdapter(beers);
@@ -81,7 +81,6 @@ public class BeerSelectActivity extends AppCompatActivity {
         public BeerAdapter(List<Beer> beers) {
             this.beers = beers;
         }
-
 
         @NonNull
         @Override

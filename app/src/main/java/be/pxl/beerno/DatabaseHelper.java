@@ -14,7 +14,7 @@ public class DatabaseHelper extends StoryLineDatabaseHelper {
 
     @Override
     protected void onCreate(StoryLineBuilder builder) {
-        BeerRepository beerRepository = new BeerRepository();
+        BeerRepository beerRepository = BeerRepository.getInstance();
 
         List<Establishment> nearbyEstablishments = beerRepository.getNearbyEstablishments();
 
