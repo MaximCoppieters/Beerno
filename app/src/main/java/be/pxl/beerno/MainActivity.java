@@ -19,6 +19,7 @@ import com.github.jorgecastillo.listener.OnStateChangeListener;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private String svgPath = SvgPathUtil.svgPath3;
     private FillableLoader fillableLoader;
     @Override
@@ -30,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         fillableLoader = findViewById(R.id.fillableLoader);
         fillableLoader.setSvgPath(svgPath);
 
-<<<<<<< HEAD
      fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
            @Override
         public void onStateChange(int state) {
@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         fillableLoader.start();
 
         startActivity(new Intent(MainActivity.this, EstablishmentActivity.class));
-=======
         fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
             @Override
             public void onStateChange(int state) {
@@ -56,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         fillableLoader.start();
->>>>>>> 28d86060560b9423812870571e42c50566a35eb0
     }
 
     private Context getActivity() {
