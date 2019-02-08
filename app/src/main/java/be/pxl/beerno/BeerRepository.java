@@ -115,7 +115,7 @@ public class BeerRepository {
 
     public Establishment getEstablishmentAtLatLng(LatLng establishmentLatLng) {
         for (Establishment establishment : establishments) {
-            if (establishment.getLocation().distanceTo(establishmentLatLng) < 20.0) {
+            if (establishment.getLocation().distanceTo(establishmentLatLng) < 100.0) {
                 return establishment;
             }
         }

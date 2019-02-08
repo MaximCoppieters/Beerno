@@ -55,18 +55,17 @@ public class BeerSelectActivity extends AppCompatActivity {
                 if (selectCounted == 0) {
                     Toast.makeText(BeerSelectActivity.this, "Please select a beer",
                             Toast.LENGTH_SHORT).show();
+                } else {
+                    main_layout.setAlpha((float) 0.1);
+                    loading_layout.setVisibility(View.VISIBLE);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
+                        }
+                    }, 3000);
                 }
-
-
-                main_layout.setAlpha((float) 0.1);
-                loading_layout.setVisibility(View.VISIBLE);
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
-                    }
-                }, 3000);
             }
         });
         setSupportActionBar(toolbar);
