@@ -58,9 +58,7 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
 
     private StoryLine storyLine;
     private Task currentTask;
-
     private Marker currentMarker;
-
     private TextToSpeech textToSpeech;
     private Button mapButton;
 
@@ -73,21 +71,10 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
         setSupportActionBar(toolbar);
 
         mapView = findViewById(R.id.map_view);
-
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
         storyLine = StoryLine.open(this, DatabaseHelper.class);
         currentTask = storyLine.currentTask();
-
-
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
         public void onMapReady(MapboxMap mapboxMap) {
@@ -96,7 +83,6 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
             mapboxMap.getUiSettings().setAllGesturesEnabled(true);
             initializeListeners();
             updateMarkers();
-
         }
 
     private void initializeListeners() {
