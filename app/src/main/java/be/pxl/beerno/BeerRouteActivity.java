@@ -127,6 +127,10 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
         mapView.onStart();
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     protected void onResume() {
         super.onResume();
         mapView.onResume();
