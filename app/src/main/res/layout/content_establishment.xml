@@ -37,7 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            tools:listitem="@layout/row_beer_establishment">
+            tools:listitem="@layout/row_beer_establishment"
+            android:layout_marginBottom="75dp">
+
 
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
@@ -49,6 +51,7 @@
             app:cardBackgroundColor="@color/colorButton"
             app:cardCornerRadius="15dp"
             style="@style/bottom_button_cardview"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="130dp">
             <TextView
                 android:text="RESUME"
