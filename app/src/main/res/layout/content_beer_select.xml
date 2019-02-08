@@ -58,8 +58,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_gravity="bottom"
-            android:paddingBottom="150dp"
+            android:paddingBottom="165dp"
             android:textSize="35dp"
-            android:text="Calculating nearest pubs"/>
+            android:text="Calculating\n\n\n\n\n\n\nnearest pubs..."/>
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>

@@ -57,12 +57,24 @@ public class BeerRepository {
         Beer guinness = new Beer("Guinness", R.drawable.guinness);
         Beer krusuvice = new Beer("Krušovice", R.drawable.krusovice);
         Beer heineken = new Beer("Heineken", R.drawable.heineken);
+        Beer urquell = new Beer("Pilsner Urguell", R.drawable.urquell);
+        Beer praga = new Beer("Praga", R.drawable.praga);
+        Beer kozel = new Beer("Kozel", R.drawable.kozel);
+        Beer leffe = new Beer("Leffe Blond", R.drawable.leffe);
+        Beer duvel = new Beer("Duvel", R.drawable.duvel);
+        Beer westmalle = new Beer("Westmalle Tripel", R.drawable.westmalle);
 
         stella.setDescription("a Belgian pilsner of between 4.8 and 5.2% ABV");
         jupiler.setDescription("a Belgian beer introduced in 1966, biggest-selling beer in Belgium");
         guinness.setDescription("an Irish dry stout that originated in the brewery of Arthur Guinness");
         krusuvice.setDescription("established in 1581 by Jiří Birka in the village of Krušovice");
         heineken.setDescription("Piswater");
+        urquell.setDescription("a Czech beer established in 1842");
+        praga.setDescription("a Czech beer made in Prague");
+        kozel.setDescription("a Czech beer established in  1874 by František Ringhoffer");
+        leffe.setDescription("a Belgian beer established in 1152");
+        duvel.setDescription("a Belgian beer made in Moortgat");
+        westmalle.setDescription("a Belgian trappist established in 1194");
 
         stella.associateBeerWithEstablishment(shotBar);
         stella.associateBeerWithEstablishment(aloha);
@@ -74,12 +86,28 @@ public class BeerRepository {
         krusuvice.associateBeerWithEstablishment(aloha);
         heineken.associateBeerWithEstablishment(aloha);
         heineken.associateBeerWithEstablishment(shotBar);
+        urquell.associateBeerWithEstablishment(shotBar);
+        urquell.associateBeerWithEstablishment(aloha);
+        praga.associateBeerWithEstablishment(cubana);
+        praga.associateBeerWithEstablishment(aloha);
+        kozel.associateBeerWithEstablishment(barktery);
+        kozel.associateBeerWithEstablishment(shotBar);
+        duvel.associateBeerWithEstablishment(barktery);
+        duvel.associateBeerWithEstablishment(aloha);
+        westmalle.associateBeerWithEstablishment(shotBar);
+        westmalle.associateBeerWithEstablishment(cubana);
+        leffe.associateBeerWithEstablishment(shotBar);
+        leffe.associateBeerWithEstablishment(cubana);
+
 
         beers.add(stella);
         beers.add(guinness);
         beers.add(krusuvice);
         beers.add(heineken);
         beers.add(jupiler);
+        beers.add(kozel);
+        beers.add(urquell);
+        beers.add(praga);
     }
 
     public Establishment getEstablishmentAtLatLng(final LatLng establishmentLatLng) {
