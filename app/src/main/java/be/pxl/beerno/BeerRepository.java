@@ -1,6 +1,8 @@
 package be.pxl.beerno;
 
 
+import android.content.res.Resources;
+
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
@@ -42,15 +44,16 @@ public class BeerRepository {
     // Cubana coords 49.197033, 16.609721
 
     private void findNearbyEstablishments() {
-        Establishment shotBar = new Establishment("Irish Pub", new LatLng(49.196244, 16.608121));
-        Establishment aloha = new Establishment("Aloha", new LatLng(49.196346,16.608459));
-        Establishment barktery = new Establishment("Barktery", new LatLng(49.196450,16.609556));
-        Establishment cubana = new Establishment("Cubana", new LatLng(49.197033, 16.609721));
+        Establishment shotBar = new Establishment("Shot Bar", new LatLng(49.209752, 16.614986));
+        Establishment aloha = new Establishment("Aloha", new LatLng(49.210006,16.614782));
+        Establishment barktery = new Establishment("Barktery", new LatLng(49.209790,16.614993));
+        Establishment irishPub = new Establishment("Irish Pub", new LatLng(49.209700,16.614903));
+        Establishment cubana = new Establishment("Cubana", new LatLng(49.209730,16.614943));
 
         establishments.add(shotBar);
         establishments.add(aloha);
         establishments.add(barktery);
-        establishments.add(cubana);
+        establishments.add(irishPub);
 
         Beer stella = new Beer("Stella Artois", R.drawable.stella);
         Beer jupiler = new Beer("Jupiler", R.drawable.jupiler);
@@ -79,9 +82,9 @@ public class BeerRepository {
         stella.associateBeerWithEstablishment(shotBar);
         stella.associateBeerWithEstablishment(aloha);
         jupiler.associateBeerWithEstablishment(barktery);
-        jupiler.associateBeerWithEstablishment(cubana);
+        jupiler.associateBeerWithEstablishment(irishPub);
         guinness.associateBeerWithEstablishment(barktery);
-        guinness.associateBeerWithEstablishment(cubana);
+        guinness.associateBeerWithEstablishment(irishPub);
         krusuvice.associateBeerWithEstablishment(shotBar);
         krusuvice.associateBeerWithEstablishment(aloha);
         heineken.associateBeerWithEstablishment(aloha);
@@ -110,16 +113,14 @@ public class BeerRepository {
         beers.add(praga);
     }
 
-    public Establishment getEstablishmentAtLatLng(final LatLng establishmentLatLng) {
-        // TODO Have to get;
-        return establishments.get(0);
-
-/*        for (Establishment establishment : establishments) {
-            if (establishment.getLocation().equals(establishmentLatLng)) {
+    public Establishment getEstablishmentAtLatLng(LatLng establishmentLatLng) {
+        for (Establishment establishment : establishments) {
+            if (establishment.getLocation().distanceTo(establishmentLatLng) < 10000.0) {
                 return establishment;
             }
         }
-        throw new Resources.NotFoundException("Establishment at location was not found");*/
+        throw new Resources.NotFoundException(String.format("Location at long: %.6f, lat: %.6f not found"
+                ,establishmentLatLng.getLatitude(), establishmentLatLng.getLongitude()));
     }
 
     private void findAllBeers() {
