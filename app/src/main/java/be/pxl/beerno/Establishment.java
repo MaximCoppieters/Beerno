@@ -11,6 +11,8 @@ public class Establishment implements Serializable {
     private LatLng location;
     private List<Beer> beerMenu;
     private int id;
+    public boolean visited = false;
+
     public Establishment(String name, LatLng location) {
         this(name, location, new ArrayList<Beer>());
     }

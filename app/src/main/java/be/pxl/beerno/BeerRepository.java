@@ -116,15 +116,16 @@ public class BeerRepository {
     public Establishment getEstablishmentAtLatLng(LatLng establishmentLatLng) {
         for (Establishment establishment : establishments) {
             if (establishment.getLocation().distanceTo(establishmentLatLng) < 100.0) {
-                return establishment;
+                if (establishment.visited == false) {
+                    return establishment;
+                }
             }
         }
         throw new Resources.NotFoundException(String.format("Location at long: %.6f, lat: %.6f not found"
                 ,establishmentLatLng.getLatitude(), establishmentLatLng.getLongitude()));
     }
 
-    private void findAllBeers() {
-    }
+    private void findAllBeers() { }
 
     public void setEstablishmentVisitingAtLocation(LatLng location) {
         establishmentVisiting = getEstablishmentAtLatLng(location);

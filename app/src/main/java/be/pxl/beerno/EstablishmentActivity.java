@@ -39,6 +39,7 @@ public class EstablishmentActivity extends AppCompatActivity {
 
         beerRepository = BeerRepository.getInstance();
         establishment = beerRepository.getEstablishmentVisiting();
+        establishment.visited = true;
 
         setContentView(R.layout.activity_establishment);
         Toolbar toolbar = findViewById(R.id.toolbar);
