@@ -21,8 +21,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import static java.lang.Thread.sleep;
-
 public class BeerSelectActivity extends AppCompatActivity {
     private List<Beer> beers;
     private RecyclerView recyclerView;
