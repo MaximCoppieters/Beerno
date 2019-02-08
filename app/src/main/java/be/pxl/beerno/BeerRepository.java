@@ -54,23 +54,29 @@ public class BeerRepository {
 
         Beer stella = new Beer("Stella Artois", R.drawable.stella);
         Beer jupiler = new Beer("Jupiler", R.drawable.jupiler);
-        Beer guiness = new Beer("Guiness", R.drawable.guiness);
+        Beer guinness = new Beer("Guinness", R.drawable.guinness);
         Beer krusuvice = new Beer("Krušovice", R.drawable.krusovice);
         Beer heineken = new Beer("Heineken", R.drawable.heineken);
+
+        stella.setDescription("a Belgian pilsner of between 4.8 and 5.2% ABV");
+        jupiler.setDescription("a Belgian beer introduced in 1966, biggest-selling beer in Belgium");
+        guinness.setDescription("an Irish dry stout that originated in the brewery of Arthur Guinness");
+        krusuvice.setDescription("established in 1581 by Jiří Birka in the village of Krušovice");
+        heineken.setDescription("Piswater");
 
         stella.associateBeerWithEstablishment(shotBar);
         stella.associateBeerWithEstablishment(aloha);
         jupiler.associateBeerWithEstablishment(barktery);
         jupiler.associateBeerWithEstablishment(cubana);
-        guiness.associateBeerWithEstablishment(barktery);
-        guiness.associateBeerWithEstablishment(cubana);
+        guinness.associateBeerWithEstablishment(barktery);
+        guinness.associateBeerWithEstablishment(cubana);
         krusuvice.associateBeerWithEstablishment(shotBar);
         krusuvice.associateBeerWithEstablishment(aloha);
         heineken.associateBeerWithEstablishment(aloha);
         heineken.associateBeerWithEstablishment(shotBar);
 
         beers.add(stella);
-        beers.add(guiness);
+        beers.add(guinness);
         beers.add(krusuvice);
         beers.add(heineken);
         beers.add(jupiler);
