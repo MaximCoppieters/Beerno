@@ -14,7 +14,7 @@ public class Beer implements Serializable {
     private int imageId;
     private boolean selected;
     private List<Establishment> establishmentsServedAt;
-
+    private int id;
     private String description;
 
     public Beer(String name, int imageId) {
@@ -43,6 +43,7 @@ public class Beer implements Serializable {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
+public void setDescription(String description){this.description = description; }
 
     public boolean GetSelected() {
         return selected;
@@ -51,6 +52,14 @@ public class Beer implements Serializable {
     public void associateBeerWithEstablishment(Establishment establishment) {
         establishmentsServedAt.add(establishment);
         establishment.addBeerToMenu(this);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
