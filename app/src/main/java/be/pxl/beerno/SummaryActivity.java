@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 public class SummaryActivity extends AppCompatActivity {
 
@@ -16,11 +17,9 @@ public class SummaryActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    }
+        TextView beerDrinkTextView = findViewById(R.id.total_beer_count);
 
-
-    private void setBeercountText(){
-
+        beerDrinkTextView.setText(Stats.getTotalBeersDrank());
     }
 
 }

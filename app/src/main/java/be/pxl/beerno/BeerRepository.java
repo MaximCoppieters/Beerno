@@ -1,5 +1,6 @@
 package be.pxl.beerno;
 
+
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
@@ -8,9 +9,17 @@ import java.util.List;
 public class BeerRepository {
     private List<Beer> beers;
     private List<Establishment> establishments;
+    private Establishment establishmentVisiting;
 
-    public BeerRepository() {
+    private static final BeerRepository instance = new BeerRepository();
+
+    //private constructor to avoid client applications to use constructor
+    private BeerRepository() {
         initializeRepository();
+    }
+
+    public static BeerRepository getInstance() {
+        return instance;
     }
 
     private void initializeRepository() {
@@ -67,7 +76,27 @@ public class BeerRepository {
         beers.add(jupiler);
     }
 
+    public Establishment getEstablishmentAtLatLng(final LatLng establishmentLatLng) {
+        // TODO Have to get;
+        return establishments.get(0);
+
+/*        for (Establishment establishment : establishments) {
+            if (establishment.getLocation().equals(establishmentLatLng)) {
+                return establishment;
+            }
+        }
+        throw new Resources.NotFoundException("Establishment at location was not found");*/
+    }
+
     private void findAllBeers() {
+    }
+
+    public void setEstablishmentVisitingAtLocation(LatLng location) {
+        establishmentVisiting = getEstablishmentAtLatLng(location);
+    }
+
+    public Establishment getEstablishmentVisiting() {
+        return establishmentVisiting;
     }
 
     public List<Beer> getAllBeers() {

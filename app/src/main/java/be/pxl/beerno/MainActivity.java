@@ -2,23 +2,18 @@ package be.pxl.beerno;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Canvas;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.github.jorgecastillo.FillableLoader;
 import com.github.jorgecastillo.State;
-import com.github.jorgecastillo.clippingtransforms.ClippingTransform;
 import com.github.jorgecastillo.listener.OnStateChangeListener;
 
 public class MainActivity extends AppCompatActivity {
-
 
     private String svgPath = SvgPathUtil.svgPath3;
     private FillableLoader fillableLoader;
@@ -31,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         fillableLoader = findViewById(R.id.fillableLoader);
         fillableLoader.setSvgPath(svgPath);
 
-     fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
+        fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
+
            @Override
         public void onStateChange(int state) {
                if(state == State.FINISHED){
@@ -43,20 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         fillableLoader.start();
 
-        startActivity(new Intent(MainActivity.this, EstablishmentActivity.class));
-        fillableLoader.setOnStateChangeListener(new OnStateChangeListener() {
-            @Override
-            public void onStateChange(int state) {
-                if(state == State.FINISHED){
-                    startActivity(new Intent(MainActivity.this,
-                            BeerSelectActivity.class));
-                }
-            }
-        });
-
-        fillableLoader.start();
+        // UNCOMMENT TO DIRECTLY START ACTIVITY
+        // startActivity(new Intent(MainActivity.this, EstablishmentActivity.class));
     }
-
     private Context getActivity() {
         return this;
     }
@@ -82,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void Start(View view) {
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
+//    public void Start(View view) {
+//        Intent intent = new Intent(MainActivity.this, BeerSelectActivity.class);
+//        startActivity(intent);
+//    }
 }

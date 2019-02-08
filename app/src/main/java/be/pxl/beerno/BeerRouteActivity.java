@@ -185,6 +185,15 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
                 }
                 locationComponent.activateLocationComponent(this);
                 locationComponent.setLocationComponentEnabled(true);
+                LatLng currentPositionLatLng = new LatLng();
+                currentPositionLatLng.setLongitude(currentTask.getLongitude());
+                currentPositionLatLng.setLongitude(currentTask.getLatitude());
+                mapboxMap.setCameraPosition(
+                        new CameraPosition.Builder()
+                        .target(currentPositionLatLng)
+                                .build()
+                );
+
                 double latitudeCurrentTask = currentTask.getLatitude();
                 double longtitudeCurrentTask = currentTask.getLongitude();
                 LatLng currentTaskLatlng = new LatLng();
@@ -236,10 +245,14 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
             double radius = ((GPSTask) currentTask).getRadius();
 
             LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-
             LatLng taskLocation = new LatLng(currentTask.getLatitude(), currentTask.getLongitude());
 
             if (userLocation.distanceTo(taskLocation) < radius) {
+                startActivity(new Intent(this, EstablishmentActivity.class));
+                LatLng establishmentLatLng = new LatLng(location.getLatitude(), location.getLatitude());
+                BeerRepository beerRepository = BeerRepository.getInstance();
+
+                beerRepository.setEstablishmentVisitingAtLocation(establishmentLatLng);
 
                 startActivity(new Intent(this, EstablishmentActivity.class));
             }

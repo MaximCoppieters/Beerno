@@ -1,15 +1,20 @@
 package be.pxl.beerno;
 
+
 import android.graphics.drawable.Drawable;
 
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Beer {
+public class Beer implements Serializable {
+
     private String name;
     private int imageId;
     private boolean selected;
     private List<Establishment> establishmentsServedAt;
+
     private String description;
 
     public Beer(String name, int imageId) {

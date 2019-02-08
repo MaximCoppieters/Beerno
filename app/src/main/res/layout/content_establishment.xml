@@ -7,49 +7,27 @@
     android:layout_gravity="top"
     android:orientation="horizontal">
 
-    <android.support.v7.widget.CardView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/thebackgroundofchoice"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        tools:ignore="MissingConstraints" />
 
-        app:cardElevation="4dp"
-        android:id="@+id/establishment_cardview"
-        >
-        <ImageView
-            android:id="@+id/beer_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            />
-        <TextView
-            android:id="@+id/beer_name"
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+
+            android:id="@+id/beers"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            android:textSize="35dp"
-            android:textStyle="bold"
-            tools:text="@tools:sample/lorem" />
-        <Button
-            android:id="@+id/increment_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end|top"
-            android:text="+"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:backgroundTint="@color/colorPosButton"
-            android:textColor="@color/colorText"
-            />
-        <Button
-            android:id="@+id/decrement_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end|bottom"
-            android:text="-"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:backgroundTint="@color/colorNegButton"
-            android:textColor="@color/colorText"
-            />
-    </android.support.v7.widget.CardView>
+            android:textAlignment="center"
+            tools:listitem="@layout/row_beer_establishment">
 
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 </RelativeLayout>
