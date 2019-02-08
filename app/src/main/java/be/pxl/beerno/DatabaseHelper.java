@@ -18,8 +18,6 @@ public class DatabaseHelper extends StoryLineDatabaseHelper {
 
         List<Establishment> nearbyEstablishments = beerRepository.getNearbyEstablishments();
 
-
-
 //todo terug uncommenten
 //        for (Establishment nearbyEstablishment : nearbyEstablishments) {
 //            LatLng establishmentLocation = nearbyEstablishment.getLocation();

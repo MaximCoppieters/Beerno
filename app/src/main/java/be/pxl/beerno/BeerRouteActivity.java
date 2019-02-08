@@ -77,13 +77,13 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
         currentTask = storyLine.currentTask();
     }
 
-        public void onMapReady(MapboxMap mapboxMap) {
-            this.mapboxMap = mapboxMap;
+    public void onMapReady(MapboxMap mapboxMap) {
+        this.mapboxMap = mapboxMap;
 
-            mapboxMap.getUiSettings().setAllGesturesEnabled(true);
-            initializeListeners();
-            updateMarkers();
-        }
+        mapboxMap.getUiSettings().setAllGesturesEnabled(true);
+        initializeListeners();
+        updateMarkers();
+    }
 
     private void initializeListeners() {
         if (currentTask != null) {
@@ -91,6 +91,9 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
                 initializeLocationComponent();
                 initializeLocationEngine();
             }
+        } else {
+            Intent intent = new Intent(this, SummaryActivity.class);
+            startActivity(intent);
         }
     }
 

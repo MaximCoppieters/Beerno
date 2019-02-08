@@ -21,7 +21,7 @@ public class SummaryActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        finishCardView.findViewById(R.id.finish);
+        finishCardView = findViewById(R.id.finish);
         finishCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +31,6 @@ public class SummaryActivity extends AppCompatActivity {
 
         TextView beerDrinkTextView = findViewById(R.id.total_beer_count);
 
-        beerDrinkTextView.setText(Stats.getTotalBeersDrank());
+        beerDrinkTextView.setText(String.valueOf(Stats.getTotalBeersDrank()));
     }
 }

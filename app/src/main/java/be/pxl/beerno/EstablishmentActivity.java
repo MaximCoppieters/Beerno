@@ -20,6 +20,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import cz.mendelu.busItWeek.library.StoryLine;
+import cz.mendelu.busItWeek.library.Task;
+
 public class EstablishmentActivity extends AppCompatActivity {
     private TextView establishmentNameTextView;
     private CardView resumeButton;
@@ -53,8 +56,17 @@ public class EstablishmentActivity extends AppCompatActivity {
         resumeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(EstablishmentActivity.this, "On to the next pub!", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(EstablishmentActivity.this, BeerRouteActivity.class));
+                StoryLine storyLine = StoryLine.open(EstablishmentActivity.this, DatabaseHelper.class);
+
+                Task currentTask = storyLine.currentTask();
+
+                if (currentTask != null) {
+                    currentTask.finish(true);
+                    Toast.makeText(EstablishmentActivity.this, "On to the next pub!", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(EstablishmentActivity.this, BeerRouteActivity.class));
+                } else {
+                    startActivity(new Intent(EstablishmentActivity.this, SummaryActivity.class));
+                }
             }
         });
     }
@@ -108,7 +120,7 @@ public class EstablishmentActivity extends AppCompatActivity {
             incrementButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Stats.decrementBeersDrank();
+                    Stats.incrementBeersDrank();
                     beerViewHolder.beer_count++;
                     beerViewHolder.beer_count_text.setText(String.valueOf(beerViewHolder.beer_count));
                 }
