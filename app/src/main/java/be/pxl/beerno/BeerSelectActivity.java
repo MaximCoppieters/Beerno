@@ -30,6 +30,7 @@ public class BeerSelectActivity extends AppCompatActivity {
     private FrameLayout loading_layout;
     private LinearLayout main_layout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +54,10 @@ public class BeerSelectActivity extends AppCompatActivity {
                 }, 3000);
             }
         });
-
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Select the beers you want to drink");
         initializeBeerList();
+
     }
 
     @Override
