@@ -3,6 +3,7 @@ package be.pxl.beerno;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -15,14 +16,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import static java.lang.Thread.sleep;
 
 public class BeerSelectActivity extends AppCompatActivity {
     private List<Beer> beers;
@@ -40,19 +38,19 @@ public class BeerSelectActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.beers);
         main_layout = findViewById(R.id.main_layout);
-
+        loading_layout = findViewById(R.id.loading_layout);
         resumeButtonCard = findViewById(R.id.GO);
         resumeButtonCard.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                loading_layout = findViewById(R.id.loading_layout);
                 main_layout.setAlpha((float) 0.1);
                 loading_layout.setVisibility(View.VISIBLE);
-                try {
-                    sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(BeerSelectActivity.this, BeerRouteActivity.class));
+                    }
+                }, 3000);
             }
         });
 
@@ -107,7 +105,7 @@ public class BeerSelectActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageView checkmark = v.findViewById(R.id.check_mark);
-                    if (selectedBeer.GetSelected()) {
+                    if (selectedBeer.getSelected()) {
                         selectedBeer.setSelected(false);
                         checkmark.setVisibility(View.GONE);
                     } else {

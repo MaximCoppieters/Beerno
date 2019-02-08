@@ -1,5 +1,6 @@
 package be.pxl.beerno;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -30,7 +32,7 @@ public class EstablishmentActivity extends AppCompatActivity {
     private BeerRepository beerRepository;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         beerRepository = BeerRepository.getInstance();
@@ -39,21 +41,20 @@ public class EstablishmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_establishment);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        resumeButton = findViewById(R.id.resume);
 
+        resumeButton = findViewById(R.id.resume);
         recyclerView = findViewById(R.id.beers);
 
         establishmentNameTextView = findViewById(R.id.establishment_name);
         establishmentNameTextView.setText(establishment.getName());
 
         beersOnMenu = establishment.getBeers();
-
         initializeBeerList();
-
 
         resumeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(EstablishmentActivity.this, "On to the next pub!", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(EstablishmentActivity.this, BeerRouteActivity.class));
             }
         });
@@ -73,7 +74,6 @@ public class EstablishmentActivity extends AppCompatActivity {
     }
 
     private class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder> {
-
         private List<Beer> beers;
 
         public BeerAdapter(List<Beer> beers) {
@@ -95,27 +95,14 @@ public class EstablishmentActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull final BeerViewHolder beerViewHolder, final int position) {
-            final Beer selectedBeer = EstablishmentActivity.this.beersOnMenu.get(position);
+            final Beer beer = EstablishmentActivity.this.beersOnMenu.get(position);
 
-            beerViewHolder.beer_name.setText(selectedBeer.getName());
-            beerViewHolder.beer_image.setImageResource(selectedBeer.getImageId());
+            beerViewHolder.beer_name.setText(beer.getName());
+            beerViewHolder.beer_image.setImageResource(beer.getImageId());
             beerViewHolder.beer_count.setText("0");
 
-            Picasso.get().load(selectedBeer.getImageId()).into(beerViewHolder.beer_image);
+            Picasso.get().load(beer.getImageId()).into(beerViewHolder.beer_image);
 
-            beerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageView checkmark = v.findViewById(R.id.check_mark);
-                    if (selectedBeer.GetSelected()) {
-                        selectedBeer.setSelected(false);
-                        checkmark.setVisibility(View.GONE);
-                    } else {
-                        selectedBeer.setSelected(true);
-                        checkmark.setVisibility(View.VISIBLE);
-                    }
-                }
-            });
             Button incrementButton = beerViewHolder.itemView.findViewById(R.id.increment_button);
             Button decrementButton = beerViewHolder.itemView.findViewById(R.id.decrement_button);
 
@@ -123,6 +110,9 @@ public class EstablishmentActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Stats.incrementBeersDrank();
+                    int count = Integer.parseInt(beerViewHolder.beer_count.getText().toString());
+                    count++;
+                    beerViewHolder.beer_count.setText(count);
                 }
             });
 
@@ -130,6 +120,9 @@ public class EstablishmentActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Stats.decrementBeersDrank();
+                    int count = Integer.parseInt(beerViewHolder.beer_count.getText().toString());
+                    count--;
+                    beerViewHolder.beer_count.setText(Math.max(0, count));
                 }
             });
         }
@@ -143,9 +136,8 @@ public class EstablishmentActivity extends AppCompatActivity {
                 super(itemView);
                 beer_name = itemView.findViewById(R.id.beer_name);
                 beer_image = itemView.findViewById(R.id.beer_image);
-                beer_count = itemView.findViewById(R.id.beer_image);
+                beer_count = itemView.findViewById(R.id.beer_count);
             }
         }
     }
-
 }

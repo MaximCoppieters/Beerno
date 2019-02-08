@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Establishment implements Serializable {
-
     private String name;
     private LatLng location;
     private List<Beer> beerMenu;
