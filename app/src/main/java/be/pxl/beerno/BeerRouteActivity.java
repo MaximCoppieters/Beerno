@@ -75,6 +75,9 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
         mapView.getMapAsync(this);
         storyLine = StoryLine.open(this, DatabaseHelper.class);
         currentTask = storyLine.currentTask();
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Time to drink, go to the bar");
+
     }
 
     public void onMapReady(MapboxMap mapboxMap) {
