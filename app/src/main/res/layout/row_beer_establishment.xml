@@ -7,25 +7,15 @@
     android:layout_gravity="top"
     android:orientation="horizontal">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-
-        app:cardElevation="4dp"
-        android:id="@+id/beer_select"
-        >
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-
             app:cardElevation="4dp"
-            android:id="@+id/establishment_cardview"
-            >
+            android:id="@+id/establishment_cardview" >
             <ImageView
                 android:id="@+id/beer_image"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                />
+                android:layout_height="100dp" />
             <TextView
                 android:id="@+id/beer_name"
                 android:layout_width="wrap_content"
@@ -34,7 +24,7 @@
                 android:padding="5dp"
                 tools:text="@tools:sample/lorem" />
             <TextView
-                android:id="@+id/beer_count"
+                android:id="@+id/beer_count_text"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center"
@@ -48,8 +38,7 @@
                 android:text="+"
                 android:textSize="25dp"
                 android:backgroundTint="@color/colorPosButton"
-                android:textColor="@color/colorText"
-                />
+                android:textColor="@color/colorText" />
             <Button
                 android:id="@+id/decrement_button"
                 android:layout_width="50dp"
@@ -58,9 +47,6 @@
                 android:text="-"
                 android:textSize="25dp"
                 android:backgroundTint="@color/colorNegButton"
-                android:textColor="@color/colorText"
-                />
+                android:textColor="@color/colorText" />
         </android.support.v7.widget.CardView>
-    </android.support.v7.widget.CardView>
-
 </RelativeLayout>

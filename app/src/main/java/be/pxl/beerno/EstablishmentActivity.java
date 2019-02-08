@@ -1,6 +1,5 @@
 package be.pxl.beerno;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -99,7 +98,7 @@ public class EstablishmentActivity extends AppCompatActivity {
 
             beerViewHolder.beer_name.setText(beer.getName());
             beerViewHolder.beer_image.setImageResource(beer.getImageId());
-            beerViewHolder.beer_count.setText("0");
+            beerViewHolder.beer_count_text.setText("0");
 
             Picasso.get().load(beer.getImageId()).into(beerViewHolder.beer_image);
 
@@ -109,10 +108,9 @@ public class EstablishmentActivity extends AppCompatActivity {
             incrementButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Stats.incrementBeersDrank();
-                    int count = Integer.parseInt(beerViewHolder.beer_count.getText().toString());
-                    count++;
-                    beerViewHolder.beer_count.setText(count);
+                    Stats.decrementBeersDrank();
+                    beerViewHolder.beer_count++;
+                    beerViewHolder.beer_count_text.setText(String.valueOf(beerViewHolder.beer_count));
                 }
             });
 
@@ -120,23 +118,25 @@ public class EstablishmentActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Stats.decrementBeersDrank();
-                    int count = Integer.parseInt(beerViewHolder.beer_count.getText().toString());
-                    count--;
-                    beerViewHolder.beer_count.setText(Math.max(0, count));
+                    beerViewHolder.beer_count--;
+                    beerViewHolder.beer_count = Math.max(0, beerViewHolder.beer_count);
+                    beerViewHolder.beer_count_text.setText(String.valueOf(beerViewHolder.beer_count));
                 }
             });
         }
 
         public class BeerViewHolder extends RecyclerView.ViewHolder {
             public TextView beer_name;
-            public TextView beer_count;
+            public TextView beer_count_text;
             public ImageView beer_image;
+            public int beer_count;
 
             public BeerViewHolder(@NonNull View itemView) {
                 super(itemView);
                 beer_name = itemView.findViewById(R.id.beer_name);
                 beer_image = itemView.findViewById(R.id.beer_image);
-                beer_count = itemView.findViewById(R.id.beer_count);
+                beer_count_text = itemView.findViewById(R.id.beer_count_text);
+                beer_count = 0;
             }
         }
     }

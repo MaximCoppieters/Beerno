@@ -6,34 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".EstablishmentActivity">
 
-    <TextView
-        android:id="@+id/establishment_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name of pub"
-        android:textSize="30dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="7dp"/>
-
-    <android.support.v7.widget.RecyclerView
-
-        android:id="@+id/beers"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        tools:listitem="@layout/row_beer_select" >
+        android:theme="@style/AppTheme.AppBarOverlay" />
 
-    </android.support.v7.widget.RecyclerView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/resume"
-        app:cardBackgroundColor="@color/colorButton"
-        app:cardCornerRadius="15dp"
-        style="@style/bottom_button_cardview">
-        <TextView
-            android:text="RESUME"
-            style="@style/text_in_button_cardview" />
-    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <include layout="@layout/content_establishment" />
 </android.support.design.widget.CoordinatorLayout>

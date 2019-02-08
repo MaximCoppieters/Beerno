@@ -10,10 +10,8 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-
         app:cardElevation="4dp"
-        android:id="@+id/beer_select"
-        >
+        android:id="@+id/beer_select" >
         <ImageView
             android:id="@+id/beer_image"
             android:layout_width="100dp"
