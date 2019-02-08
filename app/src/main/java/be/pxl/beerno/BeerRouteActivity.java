@@ -107,6 +107,7 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
         if (currentTask != null && mapboxMap != null) {
             if (currentMarker != null) {
                 mapboxMap.removeMarker(currentMarker);
+                currentMarker.remove();
             }
             for (Task task: storyLine.taskList()){
                 mapboxMap.addMarker(createTaskMarker(this, task));
@@ -121,9 +122,7 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
                 .position(new LatLng(task.getLatitude(), task.getLongitude()))
                 .icon(MapUtil.createColoredCircleMarker(context, task.getName(), color));
     }
-    @Override
-    public void onBackPressed() {
-    }
+
     protected void onStart() {
         super.onStart();
         mapView.onStart();
