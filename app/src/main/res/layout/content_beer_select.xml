@@ -19,27 +19,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            tools:listitem="@layout/row_beer_select">
+            tools:listitem="@layout/row_beer_select"
+            android:layout_marginBottom="75dp">
 
         </android.support.v7.widget.RecyclerView>
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/GO"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="40dp"
-            app:cardBackgroundColor="@color/colorButton"
-            app:cardCornerRadius="15dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="GO!"
-                android:textSize="25sp" />
-        </android.support.v7.widget.CardView>
     </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:id="@+id/GO"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="@color/colorButton"
+        app:cardCornerRadius="15dp"
+        android:layout_marginLeft="130dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="GO!"
+            android:textSize="25sp" />
+    </android.support.v7.widget.CardView>
+   </LinearLayout>
     <FrameLayout
         android:id="@+id/loading_layout"
         android:visibility="gone"
