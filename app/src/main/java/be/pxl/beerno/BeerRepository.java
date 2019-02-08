@@ -48,6 +48,7 @@ public class BeerRepository {
         Establishment aloha = new Establishment("Aloha", new LatLng(49.210006,16.614782));
         Establishment barktery = new Establishment("Barktery", new LatLng(49.209790,16.614993));
         Establishment irishPub = new Establishment("Irish Pub", new LatLng(49.209700,16.614903));
+        Establishment cubana = new Establishment("Cubana", new LatLng(49.209730,16.614943));
 
         establishments.add(shotBar);
         establishments.add(aloha);
@@ -114,7 +115,7 @@ public class BeerRepository {
 
     public Establishment getEstablishmentAtLatLng(LatLng establishmentLatLng) {
         for (Establishment establishment : establishments) {
-            if (establishment.getLocation().distanceTo(establishmentLatLng) < 50.0) {
+            if (establishment.getLocation().distanceTo(establishmentLatLng) < 10000.0) {
                 return establishment;
             }
         }
