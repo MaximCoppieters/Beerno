@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -42,7 +43,21 @@ public class BeerSelectActivity extends AppCompatActivity {
         loading_layout = findViewById(R.id.loading_layout);
         resumeButtonCard = findViewById(R.id.GO);
         resumeButtonCard.setOnClickListener(new View.OnClickListener() {
+
             public void onClick(View v) {
+                int selectCounted = 0;
+                for (Beer beer : beers) {
+                    if (beer.getSelected()) {
+                        selectCounted++;
+                    }
+                }
+
+                if (selectCounted == 0) {
+                    Toast.makeText(BeerSelectActivity.this, "Please select a beer",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+
                 main_layout.setAlpha((float) 0.1);
                 loading_layout.setVisibility(View.VISIBLE);
                 Handler handler = new Handler();
