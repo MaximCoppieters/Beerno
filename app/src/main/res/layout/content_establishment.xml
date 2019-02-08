@@ -40,12 +40,16 @@
             tools:listitem="@layout/row_beer_establishment">
 
         </android.support.v7.widget.RecyclerView>
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <android.support.v7.widget.CardView
             android:id="@+id/resume"
             app:cardBackgroundColor="@color/colorButton"
             app:cardCornerRadius="15dp"
-            style="@style/bottom_button_cardview">
+            style="@style/bottom_button_cardview"
+            android:layout_marginLeft="130dp">
             <TextView
                 android:text="RESUME"
                 style="@style/text_in_button_cardview" />
