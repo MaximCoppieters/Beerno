@@ -84,15 +84,14 @@ public class BeerRepository {
         beers.add(jupiler);
     }
 
-    public Establishment getEstablishmentAtLatLng(final LatLng establishmentLatLng) {
+    public Establishment getEstablishmentAtLatLng(LatLng establishmentLatLng) {
         for (Establishment establishment : establishments) {
-            if (establishment.getLocation().getLatitude() == establishmentLatLng.getLatitude()
-                    && establishment.getLocation().getLongitude() == establishmentLatLng.getLongitude()
-            ) {
+            if (establishment.getLocation().distanceTo(establishmentLatLng) < 50.0) {
                 return establishment;
             }
         }
-        throw new Resources.NotFoundException("Establishment at location was not found");
+        throw new Resources.NotFoundException(String.format("Location at long: %.6f, lat: %.6f not found"
+                ,establishmentLatLng.getLatitude(), establishmentLatLng.getLongitude()));
     }
 
     private void findAllBeers() {
