@@ -124,12 +124,14 @@ public class BeerRouteActivity extends AppCompatActivity implements PermissionsL
                 .position(new LatLng(task.getLatitude(), task.getLongitude()))
                 .icon(MapUtil.createColoredCircleMarker(context, task.getName(), color));
     }
-    @Override
-    public void onBackPressed() {
-    }
+
     protected void onStart() {
         super.onStart();
         mapView.onStart();
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
     protected void onResume() {
